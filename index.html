@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js" integrity="sha512-nIwdJlD5/vHj23CbO2iHCXtsqzdTTx3e3uAmpTm4x2Y8xCIFyWu4cSIV8GaGe2UNVq86/1h9EgUZy7tn243qdA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <title>Datetime</title>
+</head>
+
+<body>
+
+    <div class="container mx-auto bg-gray-100 p-20">
+        <h2 class="text-3xl p-3 mx-auto">Agendamento de Atividades</h2>
+        <h2 class="text-3xl p-3 mx-auto">Estudo sobre padrões de projeto </h2>
+        <form onsubmit="agenda._verificarAgenda()._entradaDeDados()._gravarDados()">
+            <div class="flex-column w-1/2">
+                <div class="p-4">
+                    <label for="dataHora" class="text-1xl mr-5">Data e Hora da atividade :</label>
+                    <input type="date" class="p-3 mx-auto border-gray-100 border-solid border-4 border-light-blue-500 " id="dataHora">
+                </div>
+
+                <div>
+                    <label for="dataHora" class="text-1xl mr-5">Título da atividade :</label>
+                    <input type="text" class="p-3 mx-auto border-gray-100 border-solid border-4 border-light-blue-500 " id="tituloDaAtividade">
+                </div>
+
+                <div>
+                    <button type="submit" class="w-full bg-indigo-200 mt-3 p-3 text-2xl text-white">Gravar agendamento</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <div class="container mx-auto bg-gray-100 p-20 mt-2 ">
+        <h2 class="text-3xl p-3 mx-auto ">Agenda</h2>
+        <ul id="listaAgenda"></ul>
+    </div>
+
+</body>
+<script>
+    flatpickr("#dataHora ", {
+        enableTime: true,
+        minTime: "00:00 ",
+        dateFormat: 'd/m/Y H:i',
+        locale: {
+            firstDayOfWeek: 1,
+            weekdays: {
+                shorthand: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                longhand: ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Четверг', 'Пятница', 'Суббота'],
+            },
+            months: {
+                shorthand: ['Jan', 'Fеv', 'Маr', 'Аbr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                longhand: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            },
+        },
+    });
+
+    class Agenda {
+        constructor() {
+
+            this._dataHora = document.querySelector("#dataHora")
+            this._tituloDaAtividade = document.querySelector("#tituloDaAtividade")
+            this.dadosDaAgenda = []
+        }
+
+        _getDados() {
+            return this.dadosDaAgenda
+        }
+
+        _entradaDeDados() {
+            let dados = {
+                dataHora: this._dataHora.value,
+                tituloDaAtividade: this._tituloDaAtividade.value
+            }
+            this.dadosDaAgenda.push(dados)
+            console.log(this.dadosDaAgenda)
+            return this
+        }
+
+        _verificarAgenda() {
+            event.preventDefault();
+
+            if (this._dataHora.value == "") {
+                alert("Preencha o horário")
+                return false
+            }
+            if (this._tituloDaAtividade.value == "") {
+                alert("Preencha o título da atividade")
+                return false
+            }
+
+            const agenda = this.dadosDaAgenda.filter(item => {
+                return item.dataHora == this._dataHora.value
+            })
+            if (agenda.length > 0) {
+                alert("Informe um horário diferente")
+                return false
+            }
+            return this
+        }
+
+        _gravarDados() {
+            alert("Gravando dados da agenda")
+            agendaView.listarAgendamentos()
+        }
+
+    }
+
+
+    class AgendaView {
+        constructor() {
+            this._lista = document.querySelector("#listaAgenda")
+        }
+
+        listarAgendamentos() {
+                this._lista.innerHTML = `${agenda._getDados()
+                                                 .map(item => `<li> ${item.dataHora} - ${item.tituloDaAtividade} </li>`)
+                                                 .join('')}`
+        }
+    }
+
+    var agenda = new Agenda();
+    var agendaView = new AgendaView();
+</script>
+
+</html>
