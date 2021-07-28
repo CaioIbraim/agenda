@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -13,59 +13,46 @@
 </head>
 
 <body>
-
-    <div class="container mx-auto mb-2 mt-2" id="dangerMessageContainer">
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-            <strong class="font-bold" id="dangerMessageTitle">Holy smokes!</strong>
-            <span class="block sm:inline" id="dangerMessageText">Something seriously bad happened.</span>
-            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-          <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
-        </span>
-        </div>
-    </div>
-
-
-    <div class="container mx-auto mb-2 mt-2" id="successMessageContainer">
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-            <strong class="font-bold" id="successMessageTitle">Holy smokes!</strong>
-            <span class="block sm:inline" id="successMessageText">Something seriously bad happened.</span>
-            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-          <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
-        </span>
-        </div>
-    </div>
-
-    <div class="container mx-auto bg-gray-100 p-20">
-        <h2 class="text-3xl p-3 mx-auto">Agendamento de Atividades</h2>
-        <h2 class="text-3xl p-3 mx-auto">Estudo sobre padrões de projeto </h2>
-        <form onsubmit="agenda._verificarAgenda()._entradaDeDados()._gravarDados()">
-            <div class="flex-column w-1/2">
-                <div class="p-4">
-                    <label for="dataHora" class="text-1xl mr-5">Data e Hora da atividade :</label>
-                    <input type="date" class="p-3 mx-auto border-gray-100 border-solid border-4 border-light-blue-500 " id="dataHora">
-                </div>
-
-                <div>
-                    <label for="dataHora" class="text-1xl mr-5">Título da atividade :</label>
-                    <input type="text" class="p-3 mx-auto border-gray-100 border-solid border-4 border-light-blue-500 " id="tituloDaAtividade">
-                </div>
-
-                <div>
-                    <button type="submit" class="w-full bg-indigo-200 mt-3 p-3 text-2xl text-white">Lançar agendamento</button>
-                </div>
-
+    <div id="mensageria">
+        <div class="container mx-auto mb-2 mt-2" id="dangerMessageContainer">
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <strong class="font-bold" id="dangerMessageTitle">Holy smokes!</strong>
+                <span class="block sm:inline" id="dangerMessageText">Something seriously bad happened.</span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+            <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+            </span>
             </div>
-        </form>
-    </div>
+        </div>
 
+
+        <div class="container mx-auto mb-2 mt-2" id="successMessageContainer">
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                <strong class="font-bold" id="successMessageTitle">Holy smokes!</strong>
+                <span class="block sm:inline" id="successMessageText">Something seriously bad happened.</span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+            <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+            </span>
+            </div>
+        </div>
+    </div>
+    <div class="container mx-auto bg-gray-100 pl-20 pb-10 pr-20 mt-2 ">
+            <h2 class="text-1xl p-3 mx-auto ">Agendamento de Atividades</h2>
+            <div class="flex">
+                <input type="date" id="searchDataHora" oninput="agenda._filtarDadosDataHora()" class="w-1/2 bg-gray-10 p-2  m-1 rounded" placeholder="Pesquisar por Data e Hora">
+                <input type="text" id="searchText" onkeydown="agenda._filtarDados()" class="w-1/2 bg-gray-10 p-2 m-1 rounded" placeholder="Pesquisar pelo título da atividade">
+                <input type="hidden" id="editarAgendamento">
+            </div>
+            
+            <div class="flex">
+                <button class="w-full bg-indigo-600 m-1 p-2 text-2xl text-white" onclick="agenda._verificarAgenda()._entradaDeDados()._gravarDados()">Lançar agendamento</button>
+                <button class="w-full bg-yellow-600 m-1 p-2 text-2xl text-white" onclick="agenda._verificarAgenda()._entradaDeDados()._editarDados()">Editar agendamento</button>
+            </div>
+    </div>
     <div class="container mx-auto bg-gray-100 p-20 mt-2 ">
-        <h2 class="text-3xl p-3 mx-auto ">Agenda</h2>
-        <input type="date" id="searchDataHora" oninput="agenda._filtarDadosDataHora()" class="w-1/2 bg-gray-10 p-2 mb-1 rounded" placeholder="Pesquisar por Data e Hora">
-        <input type="text" id="searchText" onkeydown="agenda._filtarDados()" class="w-1/2 bg-gray-10 p-2 mb-1 rounded" placeholder="Pesquisar">
         <ul id="listaAgenda"></ul>
     </div>
-
 </body>
+
 <script>
     flatpickr("#dataHora", {
         enableTime: true,
@@ -85,9 +72,9 @@
     });
 
     flatpickr("#searchDataHora", {
-        enableTime: false,
+        enableTime: true,
         minTime: "00:00 ",
-        dateFormat: 'd/m/Y',
+        dateFormat: 'd/m/Y H:i',
         locale: {
             firstDayOfWeek: 1,
             weekdays: {
@@ -103,8 +90,8 @@
 
     class Agenda {
         constructor() {
-            this._dataHora = document.querySelector("#dataHora")
-            this._tituloDaAtividade = document.querySelector("#tituloDaAtividade")
+            this._dataHora = document.querySelector("#searchDataHora")
+            this._tituloDaAtividade = document.querySelector("#searchText")
             this.dadosDaAgenda = []
         }
 
@@ -160,6 +147,15 @@
             }
         }
 
+        _editarDados(dataHora) {
+            if (confirm("Deseja editar o agendamento?")) {
+                let dados = this.dadosDaAgenda.filter(item => {
+                    return item.dataHora == dataHora
+                })
+                agendaView.editarDados(dados[0])  
+            }
+        }
+
         _filtarDados() {
             //Filtrar agendamentos por parte do texto
             let searchStr = agendaView._searchText.value
@@ -196,12 +192,23 @@
             this._lista = document.querySelector("#listaAgenda")
             this._searchText = document.querySelector("#searchText")
             this._searchDataHora = document.querySelector("#searchDataHora")
-            
+            this._editarAgendamento = document.querySelector("#editarAgendamento")
+        }
+
+        editarDados(dados){
+            this._searchText.value        = dados.tituloDaAtividade
+            this._searchDataHora.value    = dados.dataHora
+            this._editarAgendamento.value = dados.dataHora
         }
 
         listarAgendamentos(dados) {
                 this._lista.innerHTML = `${dados
-                                                 .map(item => `<li ${item.cumprido == true ? "class='text-yellow-100'" : "text-yellow-100" }  > ${item.dataHora} - ${item.tituloDaAtividade} <a onclick = "agenda._removerDados('${item.dataHora}')" > Remover </a> </li>`)
+                                                 .map(item => `
+                                                    <li ${item.cumprido == true ? "class='text-yellow-100'" : "text-yellow-100" }  > 
+                                                        ${item.dataHora} - ${item.tituloDaAtividade} 
+                                                        <a class='text-yellow-600 cursor-pointer p-2 bg-gray-0 rounded' onclick = "agenda._editarDados('${item.dataHora}')" > Editar </a> 
+                                                        <a class='text-red-600 cursor-pointer p-2 bg-gray-0 rounded' onclick = "agenda._removerDados('${item.dataHora}')" > Remover </a> 
+                                                    </li>`)
                                                  .join('')}`
         }
 
@@ -258,9 +265,9 @@
 
     }
     
-    var agenda = new Agenda()
-    var agendaView = new AgendaView()
-    var messenger = new MessengerProxy()
+    var agenda      = new Agenda()
+    var agendaView  = new AgendaView()
+    var messenger   = new MessengerProxy()
 </script>
 
 </html>
